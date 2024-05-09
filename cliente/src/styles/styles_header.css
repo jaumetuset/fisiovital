@@ -1,0 +1,97 @@
+.App-header {
+    width: 100%;
+    height: 100%;
+}
+
+/* REDES SOCIALES */
+div.socialMedia {
+    border-bottom: 2px solid lightgrey;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+div.socialMedia img {
+    width: 1%;
+    height: 1%;
+}
+
+/*  NAVBAR + LOGO */
+.logotip {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.logotip img {
+    width: 30%;
+    margin-left: 10%;
+}
+
+/*  NAVBAR */
+.header_logoNav {
+    display: flex;
+    align-items: center;
+}
+
+.header_logoNav nav {
+    margin-left: auto; 
+}
+
+.header_logoNav > nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header_logoNav > nav > ul > li {
+    display: inline-block;
+    margin-right: 40px;
+    position: relative; 
+}
+
+.header_logoNav nav ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Estilos para el submenu */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #f5f5f5; 
+  z-index: 1;
+  top: 100%; 
+  text-align: center;
+  margin-right: auto;
+  list-style: none;
+  padding: 0px; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  border: 2px solid lightgrey; 
+
+}
+
+.submenu li {
+  margin: 0; 
+}
+
+.submenu li a {
+  display: block; 
+  color: #333; 
+  text-decoration: none;
+  padding: 10px 15px; 
+  transition: background-color 0.2s ease-in-out; 
+
+}
+
+.submenu li a:hover {
+  background-color: #cccc; 
+  border-bottom: 0px solid #cccc; 
+  color: #fff;
+}
+
+/* Mostrar el submenu cuando se hace hover sobre "Servicios" */
+.header_logoNav nav ul li:hover .submenu {
+    display: block;
+}

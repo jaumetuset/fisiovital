@@ -1,0 +1,79 @@
+.App-footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .footer-container {
+    display: flex;
+    width: 50%;
+    
+  }
+  
+  .footer-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .titol_footer{
+    font-size: 2em;
+    font-weight: lighter;
+    font-family: 'PALOMITAS';
+    margin-left: 8%;
+  }
+  
+  .politic_avisos {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+  }
+  
+  .politic_avisos a {
+    text-decoration: none;
+    color: #333; 
+    margin: 50px 50px 0px 50px; 
+  }
+  
+  .footer-right {
+    display: flex; 
+    width: 50%;
+    padding: 1%;
+  }
+  
+  .data_contact {
+    display: flex;
+    flex-direction: column; 
+    width: 50%; 
+    text-align: center;
+  }
+
+  .data_contact a {
+    margin-top: 5%;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .data {
+    display: flex; 
+    flex-direction: column; 
+    width: 50%; 
+    align-items: flex-start; 
+  }
+
+  .data p{
+    margin-top: 5%;
+    
+  }
+ 
+
+  .telf,
+  .gmail,
+  .dir {
+    margin-bottom: 0; 
+  }
