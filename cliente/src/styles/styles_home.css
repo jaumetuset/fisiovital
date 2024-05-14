@@ -1,0 +1,75 @@
+.contenedor-tienda {
+    display: flex;
+    align-items: flex-start; 
+  }
+  
+  .fila-tienda {
+    display: flex;
+    width: 100%;    
+  }
+  
+  .img_shop {
+    flex: 1; /* Ocupa el espacio disponible */
+    margin-right: 20px; /* Espacio entre la galería y la descripción */
+
+  }
+  
+  .info_shop_description {
+    flex: 1; /* Ocupa el espacio disponible */
+    text-align: left; 
+    align-self: center;
+  }
+
+  h1:nth-child(1){
+    font-size: 3em;
+    font-weight: normal;
+    font-family: 'Roboto';
+    border-bottom: 2px solid #ccc;
+  }
+
+  .info_shop_description ul{
+    list-style: none;
+    padding: 1%;
+  }
+
+  .info_shop_description ul li{
+   margin: 1%;
+  }
+
+
+
+  .contenedor-cita {
+    margin: 0 auto;
+    background-image: url('../../public/img/home/banner.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 2%;
+    text-transform: uppercase; 
+    margin-top: 1%;
+    text-align: center; 
+}
+
+.contenedor-cita p{
+    padding: 1%;
+    color: #fff;
+    font-size: 1.25em;
+}
+
+.contenedor-cita a {
+    text-decoration: none;
+    color: #000; 
+    font-weight: bold;
+    font-size: 1.3em; 
+    padding: 0.75%;
+    background-color: #ccc; 
+    border: 2px solid #b6b6b6; 
+    border-radius: 5px; 
+    transition: all 0.3s ease; 
+}
+
+.contenedor-cita a:hover {
+    background-color: #ccc; 
+    border-color: #b6b6b6; 
+    color: #fff; 
+}

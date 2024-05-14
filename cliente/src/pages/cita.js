@@ -1,18 +1,17 @@
 import React from "react";
 import Header from '../components/header';
 import Footer from '../components/footer';
-import '../styles/styles_login.css';
 
-const Login = () => {
+const Cita = () => {
     return (
         <div className="App">
             <Header /> { }
             <main>
-                <h1>Usuario Logeado</h1>
+                <h1>Cita usuario</h1>
             </main>
             <Footer /> { }
         </div>
     );
 }
 
-export default Login;
+export default Cita;

@@ -3,10 +3,11 @@ const mysql = require('mysql');
 
 // Configurar la conexión a la base de datos 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    database: 'fisiovital',
-    user: 'root',
-    password: ' '
+    host: 'https://fisiosvital.com/',
+    port: 3306,
+    user: 'jaume',
+    password: 'P45sw0rD%',
+    database: 'u495388476_fisiosvital'
 });
 
 // Crear una aplicación Express

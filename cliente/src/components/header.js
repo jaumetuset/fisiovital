@@ -16,18 +16,18 @@ const Header = () => {
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">Inicio</a></li>
+                        <li><a href="/home">Inicio</a></li>
                         <li>
                             <a href="#">Servicios</a>
                             <ul className="submenu">
-                                <li><a href="#">Fisioterapia</a></li>
-                                <li><a href="#">Podología</a></li>
-                                <li><a href="#">Yoga</a></li>
+                                <li><a href="/fisioterapia">Fisioterapia</a></li>
+                                <li><a href="/podologia">Podología</a></li>
+                                <li><a href="/yoga">Yoga</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Cita</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="/cita">Cita</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
                 </nav>
             </div>
