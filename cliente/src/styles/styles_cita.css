@@ -1,0 +1,155 @@
+.cita-main {
+    width: 80%;
+    margin: 0 auto;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#calendar-container {
+    width: 100%;
+    height: 300px;
+    /* Adjust the height according to the calendar */
+    background-color: #f5f5f5;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmation-message {
+    display: none;
+    /* Hidden by default */
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#confirmation-message h2 {
+    color: #0f5132;
+}
+
+#confirmation-message p {
+    color: #6c757d;
+}
+
+/* Additional styles for specific elements */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+select {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;base64,CAAAABAAAAD/tlwIAAAACMcIYT+/2q7/ywAAAIAAAAAAAAAAAAEBAAAAAAAAAAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAAABAA=");
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+
+select:focus {
+    border-color: #ccc;
+}
+
+option {
+    color: black;
+    /* Set text color for options */
+    padding: 10px;
+    /* Adjust option padding */
+}
+
+/* Additional styles for Fullcalendar */
+.Fullcalendar {
+    /* Remove default border and padding if needed */
+    border: none;
+    padding: 0;
+    /* Inherit font family from the main application */
+    font-family: inherit;
+  }
+  
+  .fc-header-toolbar {
+    /* Style the header toolbar (optional) */
+    background-color: #f5f5f5; /* Adjust background color */
+    border-bottom: 1px solid #ccc; /* Add a border */
+  }
+  
+  .fc-view {
+    /* Style the calendar view (optional) */
+    background-color: #fff; /* Set background color */
+  }
+  
+  .fc-daygrid-day {
+    /* Style individual day cells (optional) */
+    border: 1px solid #ddd; /* Add a border */
+    padding: 0.5rem; /* Adjust cell padding */
+    cursor: pointer; /* Set cursor to pointer on hover */
+  }
+  
+  .fc-daygrid-day.fc-day-today {
+    /* Style the current date cell (optional) */
+    background-color: #eee; /* Highlight the current date */
+  }
+  
+  /* Style other calendar elements (optional) */
+  .fc-button,
+  .fc-prev-button,
+  .fc-next-button {
+    /* Style buttons (optional) */
+    background-color: #f0f0f0; /* Set button background color */
+    border: 1px solid #ccc; /* Add a border */
+    padding: 5px 10px; /* Adjust button padding */
+    cursor: pointer; /* Set cursor to pointer on hover */
+  }
+  

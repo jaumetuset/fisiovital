@@ -28,6 +28,6 @@ app.get('/datos', (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(3000, () => {
-    console.log('Servidor Node.js escuchando en el puerto 3000');
+app.listen(3306, () => {
+    console.log('Servidor Node.js escuchando en el puerto 3306');
 });

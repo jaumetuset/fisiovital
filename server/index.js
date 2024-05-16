@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
 
-app.listen(3001, ()=>{
-    console.log("Server en el puerto 3001");
+app.listen(3306, ()=>{
+    console.log("Server en el puerto 3306");
 });

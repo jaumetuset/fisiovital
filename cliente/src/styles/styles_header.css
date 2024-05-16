@@ -3,6 +3,10 @@
     height: 100%;
 }
 
+.nav_menu_corto {
+    display: none !important;
+}
+
 /* REDES SOCIALES */
 div.socialMedia {
     border-bottom: 2px solid lightgrey;
@@ -24,7 +28,8 @@ div.socialMedia img {
 }
 
 .logotip img {
-    width: 30%;
+    width: 30% !important;
+    height: 10% !important;
     margin-left: 10%;
 }
 
@@ -32,22 +37,24 @@ div.socialMedia img {
 .header_logoNav {
     display: flex;
     align-items: center;
+    border-bottom: 2px solid lightgrey;
+    margin-bottom: 2%;
 }
 
 .header_logoNav nav {
-    margin-left: auto; 
+    margin-left: auto;
 }
 
-.header_logoNav > nav > ul {
+.header_logoNav>nav>ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.header_logoNav > nav > ul > li {
+.header_logoNav>nav>ul>li {
     display: inline-block;
     margin-right: 40px;
-    position: relative; 
+    position: relative;
 }
 
 .header_logoNav nav ul li a {
@@ -57,41 +64,122 @@ div.socialMedia img {
 
 /* Estilos para el submenu */
 .submenu {
-  display: none;
-  position: absolute;
-  background-color: #f5f5f5; 
-  z-index: 1;
-  top: 100%; 
-  text-align: center;
-  margin-right: auto;
-  list-style: none;
-  padding: 0px; 
-  border-radius: 5px; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-  border: 2px solid lightgrey; 
+    display: none;
+    position: absolute;
+    background-color: #f5f5f5;
+    z-index: 1;
+    top: 100%;
+    text-align: center;
+    margin-right: auto;
+    list-style: none;
+    padding: 0px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid lightgrey;
 
 }
 
 .submenu li {
-  margin: 0; 
+    margin: 0;
 }
 
 .submenu li a {
-  display: block; 
-  color: #333; 
-  text-decoration: none;
-  padding: 10px 15px; 
-  transition: background-color 0.2s ease-in-out; 
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.2s ease-in-out;
 
 }
 
 .submenu li a:hover {
-  background-color: #cccc; 
-  border-bottom: 0px solid #cccc; 
-  color: #fff;
+    background-color: #cccc;
+    border-bottom: 0px solid #cccc;
+    color: #fff;
 }
 
 /* Mostrar el submenu cuando se hace hover sobre "Servicios" */
 .header_logoNav nav ul li:hover .submenu {
     display: block;
+}
+
+/*  RESPONSIVE */
+@media (max-width: 930px) {
+    .logotip img {
+        width: 40% !important;
+        margin: auto;
+    }
+
+    .header_logoNav {
+        flex-direction: column;
+    }
+
+    .logotip {
+        margin-bottom: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header_logoNav nav {
+        margin: auto;
+    }
+
+    .header_logoNav>nav>ul {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+    }
+
+    .nav_menu_corto {
+        display: none !important;
+        padding: 5px;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    .nav_menu_corto img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 717px) {
+
+    .header_logoNav{
+        display: flex;
+        flex-direction: row;
+        width: 100%; 
+        text-align: center;
+    }
+
+    .header_logoNav>nav>ul {
+        display: inline-block;
+    }
+
+    .nav_menu_largo {
+        display: none !important;
+    }
+
+    .nav_menu_largo.is-open {
+        display: block !important;
+        margin: 5%;
+        display: block;
+    }
+
+    .nav_menu_largo.is-open li{
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+
+    .nav_menu_corto {
+        display: block !important;
+        padding: 5px;
+        justify-content: left;
+        width: 7%;
+    }
+
+    .nav_menu_corto img {
+        width: 100% !important;
+    }
+
 }

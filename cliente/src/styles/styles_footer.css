@@ -1,79 +1,156 @@
-.App-footer {
-    background-color: #f0f0f0;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-top: 2px solid #ccc;
-    border-bottom: 2px solid #ccc;
-  }
-  
-  .footer-container {
-    display: flex;
-    width: 50%;
-    
-  }
-  
-  .footer-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+.section__padding {
+  padding: 2rem 2rem;
+}
 
-  .titol_footer{
-    font-size: 2em;
-    font-weight: lighter;
-    font-family: 'PALOMITAS';
-    margin-left: 8%;
-  }
-  
-  .politic_avisos {
+.footer{
+  background-color: #ccc;
+}
+
+.sb__footer{
+  display: flex;
+  flex-direction: column;
+}
+
+.sb__footer-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sb__footer-links_div{
+  width: 150px;
+  margin: 1rem ;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: #fff;
+}
+
+a{
+  color: #4e4d47!important;
+  text-decoration: none!important;
+}
+
+.socialmedia{
+  display: flex;
+  flex-direction: row;
+}
+
+.socialmedia img{
+  width: 80%;
+}
+
+.sb__footer-links_div h4{
+  font-size:14px;
+  line-height: 17px;
+  margin-bottom:0.9rem;
+}
+
+.sb__footer-links_div p{
+  font-size: 12px;
+  line-height: 15px;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.sb__footer-below {
+  display: flex; 
+  justify-content: space-between; 
+}
+
+.sb__footer-below-links {
+  display: flex; 
+  width: 25%;
+}
+
+.sb__footer-below-links a{
+  padding: 1.5%;
+}
+
+hr{
+  color: #fff!important;
+  width: 100%;
+}
+
+.sb__footer-copyright p{
+  font-size: 13px;
+  line-height: 15px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+
+@media screen and (max-width:1844px) {
+  .sb__footer-below-links {
     display: flex; 
-    flex-direction: row; 
-    justify-content: center;
+    width: 40%;
   }
   
-  .politic_avisos a {
-    text-decoration: none;
-    color: #333; 
-    margin: 50px 50px 0px 50px; 
+  .sb__footer-below-links a{
+    margin: 5px;
   }
-  
-  .footer-right {
+}
+
+@media screen and (max-width:1315px) {
+  .sb__footer-below-links {
     display: flex; 
-    width: 50%;
-    padding: 1%;
+    width: 60%;
   }
   
-  .data_contact {
-    display: flex;
-    flex-direction: column; 
-    width: 50%; 
-    text-align: center;
+  .sb__footer-below-links a{
+    margin: 5px;
   }
+}
 
-  .data_contact a {
-    margin-top: 5%;
-    text-decoration: none;
-    color: #000;
+@media screen and (max-width:919px) {
+  .sb__footer-heading h1{
+    font-size: 44px;
+    line-height: 50px;
   }
-  
-  .data {
+  .sb__footer-below-links {
     display: flex; 
-    flex-direction: column; 
-    width: 50%; 
-    align-items: flex-start; 
+    width: 100%;
+  }
+  
+  .sb__footer-below-links a{
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width:550px) {
+  
+  .sb__footer-heading h1{
+    font-size: 34px;
+    line-height: 42px;
   }
 
-  .data p{
-    margin-top: 5%;
-    
+  .sb__footer-links_div{
+      margin: 1rem 0;
   }
- 
 
-  .telf,
-  .gmail,
-  .dir {
-    margin-bottom: 0; 
+  .sb__footer-btn p{
+    font-size:14px;
+    line-height:20px;
   }
+
+  .sb__footer-below{
+    flex-direction:column;
+    justify-content: left;
+  }
+
+  .sb__footer-below-links{
+    flex-direction:column;
+  }
+
+}
+
+@media screen  and (max-width:400px){
+  .sb__footer-heading h1{
+    font-size: 27px;
+    line-height: 38px;
+  }
+}

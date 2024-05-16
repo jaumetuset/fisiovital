@@ -8,20 +8,20 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 const images = [
     {
-        original: 'https://picsum.photos/id/3/5000/3000.jpg',
-        thumbnail: 'https://picsum.photos/id/3/250/150.jpg',
+        original: '../../img/calma_ig/calma_logo.png',
+        thumbnail: '../../img/calma_ig/calma_logo.png',
     },
     {
-        original: 'https://picsum.photos/id/56/5000/3333.jpg',
-        thumbnail: 'https://picsum.photos/id/56/250/150.jpg',
+        original: '../../img/calma_ig/inauguración.png',
+        thumbnail: '../../img/calma_ig/inauguración.png',
     },
     {
-        original: 'https://picsum.photos/id/12/5000/3333.jpg',
-        thumbnail: 'https://picsum.photos/id/12/250/150.jpg',
+        original: '../../img/calma_ig/relax02.png',
+        thumbnail: '../../img/calma_ig/relax02.png',
     },
     {
-        original: 'https://picsum.photos/id/21/5000/3333.jpg',
-        thumbnail: 'https://picsum.photos/id/21/250/150.jpg',
+        original: '../../img/calma_ig/tienda01.png',
+        thumbnail: '../../img/calma_ig/tienda01.png',
     }
 ];
 
@@ -30,37 +30,25 @@ const Home = () => {
         <div>
             <Header />
             <main>
-                <div class="contenedor-tienda">
-                    <div class="img_shop">
+                <div class="media-container">
+                    <div class="media-wrapper">
                         <ImageGallery
                             items={images}
-                            showFullscreenButton={false}
-                            showPlayButton={false}
+                            showFullscreenButton={true}
+                            showPlayButton={true}
                             showBullets={true}
                             showNav={false}
                             showThumbnails={false}
+                            showIndex={false}
                         />
                     </div>
-                    <div class="info_shop_description">
-                        <div class="info_shop_description_text">
-                            <h1 id='titol_descripction'>FISIOVITAL</h1>
-                        </div>
-                        <div class="info_shop_description_text">
-                            <ul>
-                                <li>Creada en 2010</li>
-                                <li>+100 profesionales certificados</li>
-                                <li>+1000 citas agendadas</li>
-                                <li>+1000 clientes satisfechos</li>
-                                <li>Lema : <i>La única clínica con 0 clientes. Solo tenemos fans! </i></li>
-                                <li>Misión : <i>Ofrecer rehabilitación y consejo a las personas </i></li>
-                                <li>Visión : <i>No parar de crecer e innovar </i></li>
-                                <li>Localidad : Elda-Petrer, Alicante</li>
-                            </ul>
-                        </div>
+                    <div class="text-container">
+                        <h2>FISIOVITAL</h2>
+                        <p> ¡Hola! Bienvenidos a este nuevo espacio llamado CALMA.</p>
+                        <p> Muy pronto se abrirán las puertas del Centro Calma para que podáis disfrutar de vuestro momento, ya sea practicando pilates o en nuestras sesiones de fisioterapia.</p>
+                        <p> Actualmente, el centro está cerrado por reformas, pero muy pronto informaremos de fecha de apertura para que juntos podamos disfrutar de esta nueva etapa. </p>
+                        <p> Gracias por vuestra paciencia.</p>
                     </div>
-                </div>
-                <div class="contenedor-servicios">
-
                 </div>
                 <div class="contenedor-cita">
                     <p><i>Unete a nuestra gran familia!!</i></p>
