@@ -22,7 +22,7 @@ const Header = () => {
                     <ul>
                         <li><a href="/home">Inicio</a></li>
                         <li>
-                            <a href="#">Servicios</a>
+                            <a href="/servicios">Servicios</a>
                             <ul className="submenu">
                                 <li><a href="/fisioterapia">Fisioterapia</a></li>
                                 <li><a href="/podologia">Podología</a></li>

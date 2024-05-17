@@ -5,28 +5,29 @@ import '../styles/styles_login.css';
 
 const Login = () => {
     return (
-        <div className="App">
-            <Header /> { }
-            <main>
-                <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
-                    <div className="bg-white p-3 rounded w-25">
+        <div className="login-page">
+            <Header />
+            <main className="login-main">
+                <div className="login-container">
+                    <div className="login-form">
+                        <h2>Welcome Back!</h2>
                         <form action="">
-                            <div className="mb-3">
+                            <div className="form-group">
                                 <label htmlFor="email">Email</label>
-                                <input type="email" name="email" id="email" placeholder="Enter Email"/>
+                                <input type="email" name="email" id="email" placeholder="Enter Email" required />
                             </div>
-                            <div className="mb-3">
+                            <div className="form-group">
                                 <label htmlFor="password">Password</label>
-                                <input type="password" name="password" id="password" placeholder="Enter Password"/>
+                                <input type="password" name="password" id="password" placeholder="Enter Password" required />
                             </div>
-                            <button type="submit" className="btn btn-success">Log in</button>
-                            <p> You are agree to aour terms and policies</p>
-                            <button className="btn btn-default border">Crear Cuenta</button>
+                            <button type="submit" className="btn-login">Log in</button>
                         </form>
+                        <p className="terms-text">By logging in, you agree to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a></p>
+                        <p className="create-account-text">Don't have an account? <a href="/signup">Sign Up</a></p>
                     </div>
                 </div>
             </main>
-            <Footer /> { }
+            <Footer />
         </div>
     );
 }

@@ -9,25 +9,17 @@ const connection = mysql.createConnection({
     password: 'P45sw0rD%',
     database: 'u495388476_fisiosvital'
 });
-
-// Crear una aplicación Express
 const app = express();
+const PORT = process.env.PORT || 3306;
 
-// Definir endpoints para interactuar con la base de datos
-app.get('/datos', (req, res) => {
-    // Realizar consulta SQL a la base de datos
-    connection.query('SELECT * FROM tabla_ejemplo', (err, results) => {
-        if (err) {
-            console.error('Error al consultar la base de datos:', err);
-            res.status(500).send({ error: 'Error en la base de datos' });
-            return;
-        }
-        // Enviar los resultados de la consulta al cliente
-        res.json(results);
-    });
+app.use(bodyParser.json());
+
+app.post('/cita', (req, res) => {
+  const citaData = req.body;
+  console.log('Datos de la cita recibidos:', citaData);
+  res.json({ message: 'Cita agendada correctamente' });
 });
 
-// Iniciar el servidor
-app.listen(3306, () => {
-    console.log('Servidor Node.js escuchando en el puerto 3306');
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
