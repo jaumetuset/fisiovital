@@ -88,6 +88,54 @@ const FormularioCita = () => {
                     </select>
                   </label>
                 </div>
+              </div>
+              {tipoCita && (
+                <div className="fila">
+                  <div className="columna">
+                    <label className="formulario-cita-label">
+                      Clase:
+                      <select value={horario} onChange={(e) => setTipoCita(e.target.value)} className="formulario-cita-select" required>
+                        <option value="">Selecciona la clase </option>
+                        {tipoCita === 'fisioterapia' && (
+                          <>
+                            <option value="atm">ATM</option>
+                            <option value="diatermia">Diatermia</option>
+                            <option value="ecografia">Ecografia</option>
+                            <option value="ejercicio_terapéutico">Ejercicio terapéutico</option>
+                            <option value="electrolisis_percutanea">Electrolisis Percutánea</option>
+                            <option value="readaptacion_deportiva">Readaptación deportiva</option>
+                            <option value="puncion_seca">Punción Seca</option>
+                            <option value="terapia_manual">Terapia Manual</option>
+                          </>
+                        )}
+                        {tipoCita === 'podologia' && (
+                          <>
+                            <option value="cirugia_uña">Cirugía Ungueal</option>
+                            <option value="Hongos_uñas">Hongos en las Uñas</option>
+                            <option value="estudio_pisadas">Estudio de Pisadas</option>
+                            <option value="infiltracion_ecoguiada">Infiltración Ecoguiada</option>
+                            <option value="ortesis_silicona">Ortesis de Silicona</option>
+                            <option value="papiloma">Papilomas</option>
+                            <option value="plantillas">Plantillas</option>
+                            <option value="posturologia">Posturología</option>
+                            <option value="quirpodia">Quiropodia</option>
+                          </>
+                        )}
+                        {tipoCita === 'pilates' && (
+                          <>
+                            <option value="pilates_embarazada">Pilates Embarazadas</option>
+                            <option value="pilates_rehabilitacion">Pilates Rehabilitación</option>
+                            <option value="pilates_adultos">Pilates Adultos</option>
+                            <option value="pilates_deport">Pilates Deportistas</option>
+                            <option value="pilates_grupo">Pilates en Grupo </option>
+                            <option value="pilates_salud">Pilates Salud Mental</option>
+                          </>
+                        )}
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              )}
                 <div className="columna">
                   <label className="formulario-cita-label">
                     Horario:
@@ -109,6 +157,7 @@ const FormularioCita = () => {
                     </select>
                   </label>
                 </div>
+              <div className="fila">
                 <div className="columna">
                   <label className="formulario-cita-label">
                     Fecha:

@@ -97,3 +97,25 @@
 .formulario-cita-submit:hover {
     background-color: #0056b3;
 }
+
+@media screen and (max-width: 600px) {
+
+    .fila {
+        flex-direction: column; 
+      }
+      
+      .columna {
+        flex: none; 
+        width: 100%; 
+        margin-right: 0; 
+        margin-bottom: 20px; 
+      }
+
+      .titulo-cita {
+        text-align: center;
+        font-size: 2em;
+        text-transform: uppercase;
+        color: #007bff;
+        font-weight: bold;
+    }
+}
