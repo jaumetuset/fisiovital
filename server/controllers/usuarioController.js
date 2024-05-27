@@ -23,7 +23,7 @@ module.exports.login = (req, res) => {
             console.error(err);
             res.status(500).json({ error: 'Error de base de datos' });
         } else if (results.length > 0) {
-            res.json({ message: 'Login exitoso', user: results[0] });
+            res.json({ message: 'Login exitoso', username });
         } else {
             res.status(401).json({ message: 'Credenciales inválidas' });
         }
@@ -62,13 +62,5 @@ module.exports.registro = (req, res) => {
 };
 
 module.exports.logout = (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            console.error('Error al cerrar sesión:', err);
-            res.status(500).json({ error: 'Error al cerrar sesión' });
-        } else {
-            console.log('Sesión cerrada exitosamente');
-            res.json({ message: 'Sesión cerrada exitosamente' });
-        }
-    });
+    res.json({ message: 'Sesión cerrada exitosamente' });
 };

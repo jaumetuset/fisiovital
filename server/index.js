@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000;
 const routes = require('./routes/authRoutes.js');
 const cors = require('cors');
 
+
 // Middleware para parsear JSON y URLs
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

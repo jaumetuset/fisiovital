@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate  } from 'react-router-dom'; 
-import '../styles/styles_header.css';
+import React, { useState} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../styles/styles_header.css";
 
 const Header = () => {
-
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -12,20 +11,14 @@ const Header = () => {
     setIsOpen((open) => !open);
   };
 
-
   const logout = async () => {
-    try {
-      await axios.post('http://localhost:3001/logout', {}, { withCredentials: true });
-      navigate('/login');
-  } catch (error) {
-      console.error('Error during logout:', error);
-  }
-  };
-
+     console.log("Logout exitoso");
+        navigate("/login"); 
+};
 
 
   return (
-   <header className="App-header">
+    <header className="App-header">
       <div className="header_logoNav">
         <div className="logotip">
           <img src="../logo/fisiovital_logo.png" alt="" />
@@ -58,7 +51,12 @@ const Header = () => {
             <li className="contacto">
               <a href="/contacto">Contacto</a>
             </li>
-            <li className='login'><a href="/login">Login</a></li>
+            <li className="login">
+                <a href="/login">Login</a>
+            </li>
+            <li className="logout">
+                <button onClick={logout}>Logout</button>
+            </li>
           </ul>
         </nav>
       </div>
