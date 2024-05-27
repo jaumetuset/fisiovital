@@ -1,9 +1,10 @@
-import React, { useState} from "react";
-import axios from "axios";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles_header.css";
+import { UserContext } from "../pages/UserContext";
 
 const Header = () => {
+  const { user, setUser } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -12,10 +13,11 @@ const Header = () => {
   };
 
   const logout = async () => {
-     console.log("Logout exitoso");
-        navigate("/login"); 
-};
-
+    setUser('');
+    localStorage.removeItem('user');
+    console.log("Logout exitoso");
+    navigate("/login");
+  };
 
   return (
     <header className="App-header">
@@ -51,12 +53,22 @@ const Header = () => {
             <li className="contacto">
               <a href="/contacto">Contacto</a>
             </li>
-            <li className="login">
+            
+            {user && (
+              <>
+                <li className="user">
+                  <span>{user}</span>
+                </li>
+                <li className="logout">
+                  <button onClick={logout}>Logout</button>
+                </li>
+              </>
+            )}
+            {!user && (
+              <li className="login">
                 <a href="/login">Login</a>
-            </li>
-            <li className="logout">
-                <button onClick={logout}>Logout</button>
-            </li>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

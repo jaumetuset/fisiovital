@@ -23,7 +23,7 @@ module.exports.login = (req, res) => {
             console.error(err);
             res.status(500).json({ error: 'Error de base de datos' });
         } else if (results.length > 0) {
-            res.json({ message: 'Login exitoso', username });
+            res.json({ message: 'Login exitoso', username: results[0].nombre  });
         } else {
             res.status(401).json({ message: 'Credenciales inválidas' });
         }

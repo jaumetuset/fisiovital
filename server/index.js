@@ -12,8 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 // Configurar CORS para permitir solicitudes desde http://localhost:3001
 app.use(cors({
     origin: 'http://localhost:3001', 
-    methods: ['GET', 'POST'], // Permitir métodos HTTP específicos
-    allowedHeaders: ['Content-Type'] // Permitir encabezados específicos
+    methods: ['GET', 'POST'], 
+    allowedHeaders: ['Content-Type'] 
 }));
 
 app.use("/", routes);
