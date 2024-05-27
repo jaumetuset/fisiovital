@@ -13,8 +13,8 @@ const Header = () => {
   };
 
   const logout = async () => {
-    setUser('');
-    localStorage.removeItem('user');
+    setUser("");
+    localStorage.removeItem("user");
     console.log("Logout exitoso");
     navigate("/login");
   };
@@ -30,32 +30,53 @@ const Header = () => {
         </div>
         <nav className={`nav_menu_largo ${isOpen ? "is-open" : ""}`}>
           <ul>
-            <li>
-              <a href="/">Inicio</a>
-            </li>
-            <li>
-              <a href="/servicios">Servicios</a>
-              <ul className="submenu">
-                <li>
-                  <a href="/servicios/fisioterapia">Fisioterapia</a>
-                </li>
-                <li>
-                  <a href="/servicios/podologia">Podología</a>
-                </li>
-                <li>
-                  <a href="/servicios/pilates">Pilates</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="/cita">Cita</a>
-            </li>
-            <li className="contacto">
-              <a href="/contacto">Contacto</a>
-            </li>
-            
-            {user && (
+            {user && user === "admin" && (
               <>
+                <li className="listServicios">
+                  <a href="/listaServicios">Lista Servicios</a>
+                </li>
+                <li className="listSubServicios">
+                  <a href="/listaSubServicios">Lista SubServicios</a>
+                </li>
+                <li className="listCitas">
+                  <a href="/listaCitas">Lista Citas</a>
+                </li>
+                <li className="listUsuarios">
+                  <a href="/listaUsuarios">Lista Usuarios</a>
+                </li>
+                <li className="user">
+                  <span>{user}</span>
+                </li>
+                <li className="logout">
+                  <button onClick={logout}>Logout</button>
+                </li>
+              </>
+            )}
+            {user !== "admin" && (
+              <>
+                <li>
+                  <a href="/">Inicio</a>
+                </li>
+                <li>
+                  <a href="/servicios">Servicios</a>
+                  <ul className="submenu">
+                    <li>
+                      <a href="/servicios/fisioterapia">Fisioterapia</a>
+                    </li>
+                    <li>
+                      <a href="/servicios/podologia">Podología</a>
+                    </li>
+                    <li>
+                      <a href="/servicios/pilates">Pilates</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/cita">Cita</a>
+                </li>
+                <li className="contacto">
+                  <a href="/contacto">Contacto</a>
+                </li>
                 <li className="user">
                   <span>{user}</span>
                 </li>

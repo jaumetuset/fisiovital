@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useContext  } from 'react';
 import '../styles/registro.css';
 import { Link, Navigate  } from 'react-router-dom';
+import { UserContext } from './UserContext';
 
 const Register = () => {
     const [nombre, setNombre] = useState('');
@@ -11,6 +12,7 @@ const Register = () => {
     const [telefono, setTelefono] = useState('');
     const [error, setError] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
+    const { setUser } = useContext(UserContext);
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -38,6 +40,7 @@ const Register = () => {
             const data = await response.json();
             console.log('Registro exitoso:', data);
             setError('');
+            setUser(nombre);
             setLoggedIn(true);
         } catch (error) {
             console.error('Error en el registro:', error);

@@ -10,6 +10,10 @@ import Fisioterapia from '../pages/fisioterapia';
 import Podologia from '../pages/podologia';
 import Pilates from '../pages/pilates';
 import NotFound from '../pages/notFound';
+import ListUser from '../pages/listUsuarios';
+import ListServices from '../pages/listUsuarios';
+import ListSubService from '../pages/listUsuarios';
+import ListCita from '../pages/listUsuarios';
 
 const MyRoutes = () => {
   return (
@@ -23,6 +27,10 @@ const MyRoutes = () => {
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registro" element={<Register />} />
+      <Route path="/listaUsuarios" element={<ListUser/>} />
+      <Route path="/listaServicios" element={<ListServices/>} />
+      <Route path="/listaSubServicios" element={<ListSubService/>} />
+      <Route path="/listaCita" element={<ListCita/>} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
