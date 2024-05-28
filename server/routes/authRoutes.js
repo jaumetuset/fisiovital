@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { listUsuarios, addUsuario, deleteUsuario, updateUsuario, login, registro } = require('../controllers/usuarioController');
+const { perfil, listUsuarios, addUsuario, deleteUsuario, updateUsuario, login, registro } = require('../controllers/usuarioController');
 const { crearCita } = require('../controllers/citaController.js');
 const { listServices, addService, deleteService } = require('../controllers/servicesController.js');
 const { listSubServices, addSubService, deleteSubService } = require('../controllers/subServicesController');
