@@ -33,15 +33,21 @@ module.exports.listServices = (req, res) => {
 // Controlador para eliminar un servicio por su ID
 module.exports.deleteService = (req, res) => {
     const serviceId = req.params.id;
-    const query = 'DELETE FROM servicios WHERE id = ?';
+    
+    // Verifica si el ID del servicio es válido
+    if (!serviceId) {
+        return res.status(400).json({ error: 'ID de servicio no proporcionado' });
+    }
+
+    // Utiliza el nombre correcto de la columna de identificación del servicio
+    const query = 'DELETE FROM servicios WHERE servicio_id = ?';
     
     dbConnection.query(query, serviceId, (err, result) => {
         if (err) {
             console.error('Error al eliminar servicio:', err);
-            res.status(500).json({ error: 'Error al eliminar servicio' });
+            return res.status(500).json({ error: 'Error al eliminar servicio' });
         } else {
-            console.log('Servicio eliminado con éxito:', result);
-            res.status(200).json({ message: 'Servicio eliminado con éxito' });
+            return res.status(200).json({ message: 'Servicio eliminado con éxito' });
         }
     });
 };

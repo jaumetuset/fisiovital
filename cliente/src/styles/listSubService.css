@@ -1,0 +1,58 @@
+.list-services-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.service-table {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  
+}
+
+.service-name {
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sub-services-table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+}
+
+.sub-services-table th,
+.sub-services-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.sub-services-table th {
+  background-color: #f2f2f2;
+}
+
+button.deleteSubService{
+    background-color: #e90e0e;
+    color: #fff;
+    border:none;
+    padding: 5%;
+    border-radius: 5px;    
+}
+
+button.deleteSubService:hover{
+    background-color: #fd7a7a;
+}
+
+button.addSubservice{
+    background-color: #338691;
+    color: #fff;
+    border:none;
+    padding: 1%;
+    margin-left: 3%;
+}
+
+button.addSubservice:hover{
+    background-color: #67dae9;
+}
