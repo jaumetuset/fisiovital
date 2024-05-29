@@ -18,6 +18,7 @@ import ListCita from "../pages/listCita";
 const MyRoutes = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
       <Route path="/" element={<Home />} />
       <Route path="/servicios" element={<Servicios />} />
       <Route path="/servicios/fisioterapia" element={<Fisioterapia />} />
@@ -25,7 +26,6 @@ const MyRoutes = () => {
       <Route path="/servicios/pilates" element={<Pilates />} />
       <Route path="/cita" element={<Cita />} />
       <Route path="/contacto" element={<Contacto />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/registro" element={<Register />} />
       <Route path="/listaUsuarios" element={<ListUser />} />
       <Route path="/listaServicios" element={<ListServices />} />

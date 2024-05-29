@@ -1,0 +1,85 @@
+.listCita-content {
+    margin: 5%;
+  }
+  
+  .listCita-content h2 {
+    padding: 1%;
+    text-transform: uppercase;
+    font-weight: 100;
+  }
+  
+  .cita-table {
+    margin: auto;
+    width: 80%;
+    border-collapse: collapse;
+  }
+  
+  .cita-table th,
+  .cita-table td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .cita-table th {
+    background-color: #d4d4d4;
+  }
+  
+  .edit-btn,
+  .delete-btn,
+  .add-cita-btn {
+    padding: 6px 12px;
+    margin: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #89e9bc;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e65a55;
+  }
+  
+  .add-cita-btn:hover {
+    background-color: #5789d3;
+  }
+  
+  .cita-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .cita-form input[type="text"],
+  .cita-form input[type="email"],
+  .cita-form button {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .cita-form input[type="text"],
+  .cita-form input[type="email"] {
+    width: calc(45% - 5px);
+  }
+  
+  .cita-form button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .cita-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .list-cita-select{
+     width: 25%;
+     margin-left: 5%;
+     margin-right: 5%;
+  }

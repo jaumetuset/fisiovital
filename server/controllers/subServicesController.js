@@ -62,3 +62,25 @@ module.exports.deleteSubService = (req, res) => {
         }
     });
 };
+
+module.exports.listSubServicesFiltered = (req, res) => {
+    const { servicio_id } = req.query; // Obtener el servicio_id de los parámetros de consulta
+
+    // Construir la consulta SQL para obtener los subservicios filtrados por servicio_id
+    let query = 'SELECT * FROM subservicios';
+    const queryParams = [];
+
+    if (servicio_id) {
+        query += ' WHERE servicio_id = ?';
+        queryParams.push(servicio_id);
+    }
+
+    dbConnection.query(query, queryParams, (err, rows) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Error de base de datos' });
+        } else {
+            res.status(200).send(rows);
+        }
+    });
+};

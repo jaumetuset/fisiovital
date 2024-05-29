@@ -91,44 +91,76 @@ module.exports.login = (req, res) => {
 
 module.exports.registro = (req, res) => {
     const { nombre, apellidos, password, correo, dni, telefono } = req.body;
-    // Verificar si ya existe un usuario con el mismo nombre y contraseña en alguna de las dos tablas
-    dbConnection.query('SELECT * FROM usuarios WHERE nombre = ? AND password = ?', [nombre, password], (err, results) => {
+
+    // Validación de campos
+    if (!nombre || !apellidos || !password || !correo || !dni || !telefono) {
+        return res.status(400).json({ error: 'Todos los campos son obligatorios.' });
+    }
+
+    // Validación de nombre y apellidos (solo letras)
+    if (!/^[a-zA-Z\s]+$/.test(nombre) || !/^[a-zA-Z\s]+$/.test(apellidos)) {
+        return res.status(400).json({ error: 'El nombre y los apellidos solo pueden contener letras.' });
+    }
+
+    // Validación de correo electrónico
+    if (!correo.includes('@')) {
+        return res.status(400).json({ error: 'El formato del correo electrónico no es válido.' });
+    }
+
+    // Validación de DNI (8 números seguidos de una letra)
+    if (!/^\d{8}[a-zA-Z]$/i.test(dni)) {
+        return res.status(400).json({ error: 'El formato del DNI no es válido.' });
+    }
+
+    // Validación de teléfono (solo números positivos)
+    if (!/^\d+$/.test(telefono)) {
+        return res.status(400).json({ error: 'El teléfono solo puede contener números positivos.' });
+    }
+
+    // Verificar duplicados por DNI en la tabla de usuarios
+    dbConnection.query('SELECT * FROM usuarios WHERE dni = ?', [dni], (err, results) => {
         if (err) {
             console.error('Error en el registro:', err);
-            res.status(500).json({ error: 'Error en el registro' });
+            return res.status(500).json({ error: 'Error en el registro' });
         } else if (results.length > 0) {
-            // Si ya existe un usuario con el mismo nombre y contraseña en la tabla de usuarios, devolver un error
-            res.status(400).json({ error: 'Ya existe un usuario con este nombre y contraseña' });
+            return res.status(400).json({ error: 'Ya existe un usuario registrado con este DNI.' });
         } else {
-            // Verificar también en la tabla de registro_usuarios
-            dbConnection.query('SELECT * FROM registro_usuarios WHERE nombre = ? AND password = ?', [nombre, password], (err, results) => {
-                if (err) {
-                    console.error('Error en el registro:', err);
-                    res.status(500).json({ error: 'Error en el registro' });
-                } else if (results.length > 0) {
-                    // Si ya existe un usuario con el mismo nombre y contraseña en la tabla de registro_usuarios, devolver un error
-                    res.status(400).json({ error: 'Ya existe un usuario con este nombre y contraseña' });
-                } else {
-                    // Si no existe un usuario con el mismo nombre y contraseña en ninguna de las dos tablas, proceder con el registro
-                    dbConnection.query('INSERT INTO registro_usuarios (nombre, apellidos, correo, dni, telefono, password) VALUES (?, ?, ?, ?, ?, ?)', 
-                        [nombre, apellidos, correo, dni, telefono, password], 
-                        (err, result) => {
-                            if (err) {
-                                console.error('Error en el registro:', err);
-                                res.status(500).json({ error: 'Error en el registro' });
-                            } else {
-                                console.log('Usuario registrado con éxito en la tabla de registro_usuarios:', result);
-                                res.json({ message: 'Usuario registrado con éxito' });
+            // Insertar el nuevo usuario en la tabla de usuarios
+            dbConnection.query('INSERT INTO usuarios (nombre, apellidos, correo, dni, telefono, password) VALUES (?, ?, ?, ?, ?, ?)',
+                [nombre, apellidos, correo, dni, telefono, password],
+                (err, result) => {
+                    if (err) {
+                        console.error('Error en el registro:', err);
+                        return res.status(500).json({ error: 'Error en el registro' });
+                    } else {
+                        console.log('Usuario registrado con éxito en la tabla de usuarios:', result);
+
+                        // También insertar el nuevo usuario en la tabla de registro_usuarios
+                        dbConnection.query('INSERT INTO registro_usuarios (nombre, apellidos, correo, dni, telefono, password) VALUES (?, ?, ?, ?, ?, ?)',
+                            [nombre, apellidos, correo, dni, telefono, password],
+                            (err, result) => {
+                                if (err) {
+                                    console.error('Error en el registro:', err);
+                                    return res.status(500).json({ error: 'Error en el registro' });
+                                } else {
+                                    console.log('Usuario registrado con éxito en la tabla de registro_usuarios:', result);
+                                    return res.json({ message: 'Usuario registrado con éxito' });
+                                }
                             }
-                        }
-                    );
+                        );
+                    }
                 }
-            });
+            );
         }
     });
 };
 
 
+
+
+
+
 module.exports.logout = (req, res) => {
     res.json({ message: 'Sesión cerrada exitosamente' });
 };
+

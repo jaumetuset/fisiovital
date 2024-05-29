@@ -56,12 +56,13 @@
     margin: 0 auto;
     background-image: url('../../public/img/home/banner.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     padding-bottom: 2%;
     text-transform: uppercase;
     margin-top: 1%;
     text-align: center;
+
   }
   
   .contenedor-cita p {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import axios from "axios";
@@ -10,11 +10,48 @@ const FormularioCita = () => {
   const [correo, setCorreo] = useState("");
   const [dni, setDni] = useState("");
   const [telefono, setTelefono] = useState("");
-  const [servicio, setServicios] = useState("");
-  const [subServicio, setSubServicios] = useState("");
+  const [servicios, setServicios] = useState([]);
+  const [subServicios, setSubServicios] = useState([]);
+  const [servicioSeleccionado, setServicioSeleccionado] = useState("");
+  const [subServicioSeleccionado, setSubServicioSeleccionado] = useState("");
   const [horario, setHorario] = useState("");
   const [fecha, setFecha] = useState("");
   const [enviado, setEnviado] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+
+  useEffect(() => {
+    // Cargar servicios desde el backend
+    const fetchServicios = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/listServicios");
+        setServicios(response.data);
+      } catch (error) {
+        console.error("Error al cargar servicios:", error);
+      }
+    };
+
+    fetchServicios();
+  }, []);
+
+  useEffect(() => {
+    // Cargar subservicios desde el backend solo cuando se selecciona un servicio
+    const fetchSubServicios = async () => {
+      try {
+        if (servicioSeleccionado) {
+          const response = await axios.get(
+            `http://localhost:3000/listaSubServiciosFiltrados?servicio_id=${servicioSeleccionado}`
+          );
+          setSubServicios(response.data);
+        } else {
+          setSubServicios([]);
+        }
+      } catch (error) {
+        console.error("Error al cargar subservicios:", error);
+      }
+    };
+
+    fetchSubServicios();
+  }, [servicioSeleccionado]);
 
   const obtenerFechaActual = () => {
     const hoy = new Date();
@@ -30,25 +67,29 @@ const FormularioCita = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/cita", {
+      const response = await axios.post("http://localhost:3000/cita", {
         nombre,
         apellido,
         correo,
         dni,
         telefono,
-        servicio,
-        subServicio,
+        servicio: servicioSeleccionado,
+        subServicio: subServicioSeleccionado,
         horario,
-        fecha,
+        fecha
       });
-      const mensaje = `${nombre} ${apellido} ha pedido cita para ${servicio}${subServicio} el día ${fecha} a la hora ${horario}.`;
-      alert(mensaje);
-      setEnviado(true);
+      if (response.status === 201) {
+        setEnviado(true);
+        setMensaje("Cita añadida con éxito");
+      } else {
+        setMensaje("Error al enviar la cita. Por favor, inténtalo de nuevo.");
+      }
     } catch (error) {
       console.error("Error al enviar la cita:", error);
-      alert("Error al enviar la cita. Por favor, inténtalo de nuevo.");
+      setMensaje("Error al enviar la cita. Por favor, inténtalo de nuevo.");
     }
   };
+  
 
   return (
     <div>
@@ -124,104 +165,42 @@ const FormularioCita = () => {
                   </label>
                 </div>
               </div>
-              <div className="fila">
-                <div className="columna">
-                  <label className="formulario-cita-label">
-                    Tipo de cita:
-                    <select
-                      value={servicio}
-                      onChange={(e) => setServicios(e.target.value)}
-                      className="formulario-cita-select"
-                      required
+              <div className="container">
+                <h2>Servicios:</h2>
+                <select
+                  value={servicioSeleccionado}
+                  onChange={(e) => setServicioSeleccionado(e.target.value)}
+                  className="formulario-cita-select"
+                >
+                  <option value="">Selecciona un servicio</option>
+                  {servicios.map((servicio) => (
+                    <option
+                      key={servicio.servicio_id}
+                      value={servicio.servicio_id}
                     >
-                      <option value="">Selecciona una opción</option>
-                      <option value="fisioterapia">Fisioterapia</option>
-                      <option value="podologia">Podología</option>
-                      <option value="pilates">Pilates</option>
-                    </select>
-                  </label>
-                </div>
+                      {`${servicio.servicio_id}: ${servicio.nombre}`}
+                    </option>
+                  ))}
+                </select>
               </div>
-              {servicio && (
-                <div className="fila">
-                  <div className="columna">
-                    <label className="formulario-cita-label">
-                      Clase:
-                      <select
-                        value={subServicio}
-                        onChange={(e) => setSubServicios(e.target.value)}
-                        className="formulario-cita-select"
-                        required
-                      >
-                        <option value="">Selecciona la clase </option>
-                        {servicio === "fisioterapia" && (
-                          <>
-                            <option value="atm">ATM</option>
-                            <option value="diatermia">Diatermia</option>
-                            <option value="ecografia">Ecografia</option>
-                            <option value="ejercicio_terapéutico">
-                              Ejercicio terapéutico
-                            </option>
-                            <option value="electrolisis_percutanea">
-                              Electrolisis Percutánea
-                            </option>
-                            <option value="readaptacion_deportiva">
-                              Readaptación deportiva
-                            </option>
-                            <option value="puncion_seca">Punción Seca</option>
-                            <option value="terapia_manual">
-                              Terapia Manual
-                            </option>
-                          </>
-                        )}
-                        {servicio === "podologia" && (
-                          <>
-                            <option value="cirugia_uña">Cirugía Ungueal</option>
-                            <option value="Hongos_uñas">
-                              Hongos en las Uñas
-                            </option>
-                            <option value="estudio_pisadas">
-                              Estudio de Pisadas
-                            </option>
-                            <option value="infiltracion_ecoguiada">
-                              Infiltración Ecoguiada
-                            </option>
-                            <option value="ortesis_silicona">
-                              Ortesis de Silicona
-                            </option>
-                            <option value="papiloma">Papilomas</option>
-                            <option value="plantillas">Plantillas</option>
-                            <option value="posturologia">Posturología</option>
-                            <option value="quirpodia">Quiropodia</option>
-                          </>
-                        )}
-                        {servicio === "pilates" && (
-                          <>
-                            <option value="pilates_embarazada">
-                              Pilates Embarazadas
-                            </option>
-                            <option value="pilates_rehabilitacion">
-                              Pilates Rehabilitación
-                            </option>
-                            <option value="pilates_adultos">
-                              Pilates Adultos
-                            </option>
-                            <option value="pilates_deport">
-                              Pilates Deportistas
-                            </option>
-                            <option value="pilates_grupo">
-                              Pilates en Grupo{" "}
-                            </option>
-                            <option value="pilates_salud">
-                              Pilates Salud Mental
-                            </option>
-                          </>
-                        )}
-                      </select>
-                    </label>
-                  </div>
-                </div>
-              )}
+              <div className="container">
+                <h2>Subservicios:</h2>
+                <select
+                  value={subServicioSeleccionado}
+                  onChange={(e) => setSubServicioSeleccionado(e.target.value)}
+                  className="formulario-cita-select"
+                >
+                  <option value="">Selecciona un subservicio</option>
+                  {subServicios.map((subServicio) => (
+                    <option
+                      key={subServicio.subservicio_id}
+                      value={subServicio.subservicio_id}
+                    >
+                      {`${subServicio.subservicio_id}: ${subServicio.nombre}`}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <div className="columna">
                 <label className="formulario-cita-label">
                   Horario:
@@ -271,7 +250,7 @@ const FormularioCita = () => {
             </form>
           ) : (
             <div className="mensaje-container">
-              <p className="mensaje-enviado">{`Cita Agendada para ${nombre} ha pedido cita para ${servicio}${subServicio} el día ${fecha} a la hora ${horario}`}</p>
+              <p className="mensaje-enviado">{mensaje}</p>
             </div>
           )}
         </div>

@@ -44,7 +44,7 @@ const Register = () => {
             setLoggedIn(true);
         } catch (error) {
             console.error('Error en el registro:', error);
-            setError('Error en el registro. Por favor, inténtalo de nuevo más tarde.');
+            setError(error.message);
         }
     };
 

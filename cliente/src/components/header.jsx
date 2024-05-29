@@ -14,7 +14,7 @@ const Header = () => {
 
   const logout = async () => {
     setUser("");
-    localStorage.removeItem("user");
+    localStorage.removeItem('user');
     console.log("Logout exitoso");
     navigate("/login");
   };
@@ -80,9 +80,11 @@ const Header = () => {
                 <li className="user">
                   <span>{user}</span>
                 </li>
-                <li className="logout">
-                  <button onClick={logout}>Logout</button>
-                </li>
+                {user && ( 
+                  <li className="logout">
+                    <button onClick={logout}>Logout</button>
+                  </li>
+                )}
               </>
             )}
             {!user && (
