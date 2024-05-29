@@ -1,30 +1,29 @@
 .main-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start;  
 }
 
-.description-container {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-
-}
-
-.text-container {
-  margin: 0 auto;
+.services-container {
+  grid-template-columns: repeat(4, 1fr)!important; 
 }
 
 .video-container {
-  width: 1000px;
-  height: 400px;
-  margin-right: 5%;
+  width: 50%;
+  margin-top: -20%; 
+  margin-left: auto;  
+}
+
+.description-container {
+  margin-top: -2%; 
+  width: 40%!important;
 }
 
 .video-container iframe {
   width: 100%;
   height: 100%;
 }
+
 
 .services-titule {
   text-align: center;
@@ -123,6 +122,33 @@
 }
 
 /* media */
+@media screen and (max-width: 1600px) {
+  .services-container {
+    grid-template-columns: repeat(3, 1fr)!important; 
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  
+  }
+    
+  .video-container {
+    width: 100%;
+    margin: auto!important;  
+  }
+  
+  .description-container {
+   width: 100%!important; 
+   padding-bottom: 2%;
+  }
+  
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media screen and (max-width: 1200px) {
 
   .main-container {
@@ -152,12 +178,15 @@
   .video-container iframe {
     width: 500px!important;
     height: 400px!important;
-    
   }
   
 }
 
 @media screen and (max-width: 900px) {
+  .services-container {
+    grid-template-columns: repeat(2, 1fr)!important; 
+  }
+
   .main-container {
     display: flex;
     flex-direction: column-reverse;
@@ -201,3 +230,34 @@
   }
 
 }
+
+@media screen and (max-width: 600px) {
+  .video-container{
+    margin: auto!important;
+    width: 90%!important;
+    margin-top: 10%!important;
+  }
+  .services-container {
+    grid-template-columns: repeat(1, 1fr)!important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .video-container iframe{
+   width: 300px!important;
+   height: 300px!important;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .video-container iframe{
+   width: 250px!important;
+   height: 200px!important;
+  }
+
+  .services-container{
+    width: 20%!important;
+    height: 10%!important;
+  }
+}
+

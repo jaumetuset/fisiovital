@@ -1,14 +1,9 @@
-/* FormularioCita.css */
-
-/* Estilos para el contenedor principal del formulario */
 .formulario-cita-container {
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Estilos para el formulario */
 .formulario-cita-form {
     background-color: #f4f4f4;
     border-radius: 10px;
@@ -40,7 +35,7 @@
     text-align: center;
     font-size: 3em;
     text-transform: uppercase;
-    color: #007bff;
+    color: #7a7a7a;
     font-weight: bold;
 }
 

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink , useNavigate } from "react-router-dom";
 import "../styles/styles_header.css";
 import { UserContext } from "../pages/UserContext";
 
@@ -33,16 +33,16 @@ const Header = () => {
             {user && user === "admin" && (
               <>
                 <li className="listServicios">
-                  <a href="/listaServicios">Lista Servicios</a>
+                  <Link to="/listaServicios">Lista Servicios</Link>
                 </li>
                 <li className="listSubServicios">
-                  <a href="/listaSubServicios">Lista SubServicios</a>
+                  <Link to="/listaSubServicios">Lista SubServicios</Link>
                 </li>
                 <li className="listCitas">
-                  <a href="/listaCitas">Lista Citas</a>
+                  <Link to="/listaCitas">Lista Citas</Link>
                 </li>
                 <li className="listUsuarios">
-                  <a href="/listaUsuarios">Lista Usuarios</a>
+                  <Link to="/listaUsuarios">Lista Usuarios</Link>
                 </li>
                 <li className="user">
                   <span>{user}</span>
@@ -55,27 +55,27 @@ const Header = () => {
             {user !== "admin" && (
               <>
                 <li>
-                  <a href="/">Inicio</a>
+                  <Link to="/">Inicio</Link>
                 </li>
                 <li>
-                  <a href="/servicios">Servicios</a>
+                  <Link to="/servicios">Servicios</Link>
                   <ul className="submenu">
                     <li>
-                      <a href="/servicios/fisioterapia">Fisioterapia</a>
+                      <Link to="/servicios/fisioterapia">Fisioterapia</Link>
                     </li>
                     <li>
-                      <a href="/servicios/podologia">Podología</a>
+                      <Link to="/servicios/podologia">Podología</Link>
                     </li>
                     <li>
-                      <a href="/servicios/pilates">Pilates</a>
+                      <Link to="/servicios/pilates">Pilates</Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="/cita">Cita</a>
+                  <Link to="/cita">Cita</Link>
                 </li>
                 <li className="contacto">
-                  <a href="/contacto">Contacto</a>
+                  <Link to="/contacto">Contacto</Link>
                 </li>
                 <li className="user">
                   <span>{user}</span>
@@ -89,7 +89,7 @@ const Header = () => {
             )}
             {!user && (
               <li className="login">
-                <a href="/login">Login</a>
+                <Link to="/login">Login</Link>
               </li>
             )}
           </ul>
