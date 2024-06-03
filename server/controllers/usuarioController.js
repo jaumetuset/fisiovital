@@ -14,10 +14,10 @@ module.exports.listUsuarios = (req, res) => {
 };
 
 exports.addUsuario = (req, res) => {
-    const { nombre, apellidos, dni, telefono, email } = req.body;
-    const query = 'INSERT INTO usuarios (nombre, apellidos, dni, telefono, email) VALUES (?, ?, ?, ?, ?)';
+    const { nombre, apellidos, dni, telefono, correo } = req.body;
+    const query = 'INSERT INTO usuarios (nombre, apellidos, dni, telefono, correo) VALUES (?, ?, ?, ?, ?)';
     
-    dbConnection.query(query, [nombre, apellidos, dni, telefono, email], (err, result) => {
+    dbConnection.query(query, [nombre, apellidos, dni, telefono, correo], (err, result) => {
         if (err) {
             console.error('Error al añadir usuario:', err);
             res.status(500).json({ error: 'Error al añadir usuario' });
@@ -45,10 +45,10 @@ exports.deleteUsuario = (req, res) => {
 
 exports.updateUsuario = (req, res) => {
     const userId = req.params.id;
-    const { nombre, apellidos, dni, telefono, email } = req.body;
-    const query = 'UPDATE usuarios SET nombre = ?, apellidos = ?, dni = ?, telefono = ?, email = ? WHERE id = ?';
+    const { nombre, apellidos, dni, telefono, correo } = req.body;
+    const query = 'UPDATE usuarios SET nombre = ?, apellidos = ?, dni = ?, telefono = ?, correo = ? WHERE id = ?';
 
-    dbConnection.query(query, [nombre, apellidos, dni, telefono, email, userId], (err, result) => {
+    dbConnection.query(query, [nombre, apellidos, dni, telefono, correo, userId], (err, result) => {
         if (err) {
             console.error('Error al actualizar usuario:', err);
             res.status(500).json({ error: 'Error al actualizar usuario' });

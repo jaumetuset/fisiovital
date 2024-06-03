@@ -14,7 +14,7 @@ const ListUser = () => {
     apellidos: "",
     dni: "",
     telefono: "",
-    email: "",
+    correo: "",
   });
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const ListUser = () => {
         apellidos: "",
         dni: "",
         telefono: "",
-        email: "",
+        correo: "",
       });
     } catch (error) {
       console.error("Error adding user:", error);
@@ -82,7 +82,7 @@ const ListUser = () => {
               <th>Apellidos</th>
               <th>DNI</th>
               <th>Teléfono</th>
-              <th>Email</th>
+              <th>Correo</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -93,7 +93,7 @@ const ListUser = () => {
                 <td>{user.apellidos}</td>
                 <td>{user.dni}</td>
                 <td>{user.telefono}</td>
-                <td>{user.email}</td>
+                <td>{user.correo}</td>
                 <td>
                   <button
                     className="edit-btn"
@@ -153,9 +153,9 @@ const ListUser = () => {
           <input
             type="email"
             name="email"
-            value={newUser.email}
+            value={newUser.correo}
             onChange={handleChange}
-            placeholder="Email"
+            placeholder="Correo"
           />
           <button className="add-user-btn" onClick={handleAddUser}>
             Añadir usuario
